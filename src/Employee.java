@@ -22,7 +22,6 @@ public class Employee {
         this.email = email;
     }
 
-
     public void printName(){
         System.out.println(name);
     }

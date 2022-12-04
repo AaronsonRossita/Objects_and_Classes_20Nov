@@ -1,18 +1,36 @@
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
+import java.io.File;
+import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    static String name = "Rossita";
+    static Scanner scanner;
+
+    public static void main(String[] args)  {
+
+        scanner = new Scanner(System.in);
+//        String answer = scanner.nextLine();
+//        scanner = new Scanner(new File(""));
 
         int[] numbers = {-7,-5,-3,-2,0,10,12,13,15,16,18,19,20,25,26,29,30};
+        String s = "  \" \\ \n ";
+
+        //System.out.println(name);
 
         Student student1 = new Student();
         Student student2 = new Student("Rossita",33);
         Student student3 = new Student("Hatool",9);
         //System.out.println(student2.name);
+        System.out.println(student1.getAge());
+        student1.setAge(-1);
 
         Employee employee1 = new Employee(1,"Rossita","@1",true);
         Employee employee2 = new Employee(2,"Hatool","@2",false);
@@ -27,7 +45,7 @@ public class Main {
 //        int x = 5;
 //        while (x < 6){
 //            System.out.println(x);
-//            x -= 1;
+//            x--;
 //        }
 //        System.out.println(findX(99,numbers));
 //        System.out.println(findXBinary(67,numbers,0, numbers.length-1));
@@ -38,11 +56,101 @@ public class Main {
         //System.out.println(Helper.google);
         //Helper.printSomething();
         double random = Math.random();
-        Date date = new Date();
 
-        System.out.println(date.getTime());
+//        multRecursion(2,7);
+
+        LocalDate localDate = LocalDate.now();
+        LocalTime localTime = LocalTime.now();
+        LocalDateTime localDateTime = LocalDateTime.now();
+        //System.out.println(localDateTime);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy HH:mm.ms");
+        // day = dd
+        // month = MM or MMM
+        // year = yy or yyyy
+        // hour = HH
+        // minutes = mm
+        // seconds = ss
+        // miliseconds = ms
+        String date = localDateTime.format(formatter);
+        //System.out.println(date);
+
+        //continueFunc();
+//
+//        System.out.println(Helper.defaultInt);
+//        System.out.println(Helper.protectedInt);
+//        System.out.println(Helper.publicInt);
+//        System.out.println(Helper.privateInt);
+
+//        try{
+//            System.out.println(numbers[68]);
+//        }catch (Exception e){
+//            System.out.println("index is wrong");
+//        }
+
+
+//        try{
+//            int index = scanner.nextInt();
+//            System.out.println(numbers[index]);
+//        }catch (Exception e){
+//            System.out.println(e);
+//        }
+        int index = 0;
+
+//        try{
+//            index = scanner.nextInt();
+//            System.out.println(numbers[index]);
+//        }catch (ArrayIndexOutOfBoundsException e){
+//            System.out.println("index out of bounds");
+//        }catch (InputMismatchException e){
+//            System.out.println("mismatch");
+//        }catch (Exception e){
+//            System.out.println("something else");
+//        }finally {
+//            System.out.println("finally");
+//        }
+
+        System.out.println(index);
+
+        String stam = null;
+
+//        try{
+//            index = scanner.nextInt();
+//            System.out.println(numbers[index]);
+//        }catch (Exception e){
+//            throw new RuntimeException("this code is wrong");
+//        }
+
+        //System.out.println(stam.charAt(8));
+
+
+        try {
+            exceptionMethod(78,0);
+        } catch (Exception e) {
+
+        }
 
     }
+
+    public static void breakFunc(){
+        for (int i = 0; i < 10; i++) {
+            if (i == 5){
+                break;
+            }
+            System.out.println("i = " + i);
+        }
+        System.out.println("hello");
+    }
+
+    public static void continueFunc(){
+        for (int i = 0; i < 10; i++) {
+            if (i == 5){
+                continue;
+            }
+            System.out.println("i = " + i);
+        }
+        System.out.println("hello");
+    }
+
     // overload
     public static void print(String s){
         System.out.println(s);
@@ -55,7 +163,6 @@ public class Main {
     public static void print(boolean x){
         System.out.println(x);
     }
-
 
     public static void printSymbol(int times, char symbol){
         for (int i = 0; i < times; i++) {
@@ -121,6 +228,24 @@ public class Main {
         }
     }
 
+    public static void printXmasTreeDif(int size, int base){
+        for (int i = size; i > 0; i--) {
+            for (int j = base; j > 0; j--) {
+                for (int k = j; k > 0; k--) {
+                    System.out.print(" ");
+                }
+                for (int k = 0; k < i+1; k++) {
+                    System.out.print(" ");
+                }
+                for (int k = -1; k < base - j; k++) {
+                    System.out.print("* ");
+                }
+                System.out.println();
+            }
+            base++;
+        }
+    }
+
     public static void recursion(int x){
         System.out.println(x);
         recursion(x - 1);
@@ -168,6 +293,32 @@ public class Main {
                 findXBinaryPrint(x, arr, middle + 1, end);
             }
         }
+    }
+
+    public static int multRecursion(int a, int b){
+        System.out.println("this time a = " + a);
+        if (a == b){
+            return b;
+        }else{
+            return a * multRecursion(a + 1, b);
+        }
+
+    }
+
+    public static void exceptionMethod(int a, int b) throws Exception{
+        try{
+            System.out.println(a/b);
+        }catch (Exception e){
+            throw new Exception("something wrong");
+        }
+    }
+
+    public static void salary(String jobName){
+        // Fullstack = 22000
+        // BackEnd = 20000
+        // FrontEnd = 18000
+
+        // "job not found"
     }
 
 }
