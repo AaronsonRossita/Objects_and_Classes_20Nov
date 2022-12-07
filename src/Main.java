@@ -27,7 +27,7 @@ public class Main {
         Person person3 = new Person("Hatool",9);
         //System.out.println(student2.name);
 //        System.out.println(person1.getAge());
-        person1.setAge(-1);
+        //person1.setAge(-1);
 
         Employee employee1 = new Employee(1,"Rossita","@1",true);
         Employee employee2 = new Employee(2,"Hatool","@2",false);
@@ -121,13 +121,13 @@ public class Main {
 //        }
 
 //        System.out.println(index);
-
-        String stam = null;
-        if (stam == null){
-            System.out.println("empty string");
-        }else{
-            System.out.println(stam.charAt(5));
-        }
+//
+//        String stam = null;
+//        if (stam == null){
+//            System.out.println("empty string");
+//        }else{
+//            System.out.println(stam.charAt(5));
+//        }
 
 
 //        try{
@@ -145,12 +145,60 @@ public class Main {
 //        } catch (Exception e) {
 //
 //        }
+//
+//        try {
+//            salary("ttt");
+//        } catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
 
-        try {
-            salary("ttt");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        Student s1 = new Student("one");
+        Student s2 = new Student("two");
+        Student s3 = new Student("three");
+        Student s4 = new Student("four");
+
+//        Course math = new Course("Math",4);
+//        math.register(s1);
+//        math.register(s2);
+//        math.register(s3);
+//        math.register(s4);
+//
+//
+//        math.printStudentList();
+//
+//        s1.setName("");
+//        System.out.println(s1.getName());
+
+        Item item1 = new Item();
+        Item item2 = new Item(5.0,"banana",3.0,1,true);
+
+        item1.setPrice(4.0);
+        item1.setName("apple");
+        item1.setWeight(2.0);
+        item1.setCount(4);
+        item1.setAvailable(true);
+
+        Item item3 = new Item(4.0,"apple",2.0,4,true);
+
+        System.out.println(item1.equals(item2));
+        System.out.println(item1.equals(item3));
+
+//        System.out.println(item1.getPrice());
+//        System.out.println(item1.getName());
+//        System.out.println(item1.getWeight());
+//        System.out.println(item1.getCount());
+//        System.out.println(item1.isAvailable());
+//
+//        System.out.println(item2.getPrice());
+//        System.out.println(item2.getName());
+//        System.out.println(item2.getWeight());
+//        System.out.println(item2.getCount());
+//        System.out.println(item2.isAvailable());
+
+        Fruit fruit1 = new Fruit("banana",2.0);
+        Fruit fruit2 = new Fruit("apple",1.0);
+        Fruit fruit3 = new Fruit("banana",2.0);
+
 
 
     }
