@@ -4,6 +4,7 @@ public class Employee {
     String name;
     String email;
     boolean currentlyWorking;
+    String phone;
 
     public Employee(int id, String name, String email, boolean currentlyWorking) {
         this.id = id;
@@ -28,6 +29,10 @@ public class Employee {
 
     public void printEmail(){
         System.out.println("This employee's email is " + email);
+    }
+
+    public void newMethod(){
+
     }
 
     @Override

@@ -1,11 +1,8 @@
-import javax.swing.plaf.basic.BasicTabbedPaneUI;
 import java.io.File;
-import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -14,7 +11,7 @@ public class Main {
     static String name = "Rossita";
     static Scanner scanner;
 
-    public static void main(String[] args)  {
+    public static void main(String[] args){
 
         scanner = new Scanner(System.in);
 //        String answer = scanner.nextLine();
@@ -25,21 +22,35 @@ public class Main {
 
         //System.out.println(name);
 
-        Student student1 = new Student();
-        Student student2 = new Student("Rossita",33);
-        Student student3 = new Student("Hatool",9);
+        Person person1 = new Person();
+        Person person2 = new Person("Rossita",33);
+        Person person3 = new Person("Hatool",9);
         //System.out.println(student2.name);
-        System.out.println(student1.getAge());
-        student1.setAge(-1);
+//        System.out.println(person1.getAge());
+        person1.setAge(-1);
 
         Employee employee1 = new Employee(1,"Rossita","@1",true);
         Employee employee2 = new Employee(2,"Hatool","@2",false);
         //employee2.printName();
+        employee2.phone = "78798";
+        employee1.newMethod();
+        employee2.newMethod();
+
+        Fruit banana = new Fruit();
+
+        Student student1 = new Student(1,"Adi","Bushari",30,true);
+//        student1.printId();
+//        student1.printAge();
+//        student1.printLastname();
+//        student1.printName();
+//        student1.printIfEnrolled();
+//
+//        student1.printStudent();
 
         //System.out.println(employee1);
         //System.out.println(employee2);
 
-        Student student4 = new Student("A",2);
+        Person person4 = new Person("A",2);
 
 //        recursion(5);
 //        int x = 5;
@@ -109,9 +120,15 @@ public class Main {
 //            System.out.println("finally");
 //        }
 
-        System.out.println(index);
+//        System.out.println(index);
 
         String stam = null;
+        if (stam == null){
+            System.out.println("empty string");
+        }else{
+            System.out.println(stam.charAt(5));
+        }
+
 
 //        try{
 //            index = scanner.nextInt();
@@ -123,11 +140,18 @@ public class Main {
         //System.out.println(stam.charAt(8));
 
 
-        try {
-            exceptionMethod(78,0);
-        } catch (Exception e) {
+//        try {
+//            exceptionMethod(78,0);
+//        } catch (Exception e) {
+//
+//        }
 
+        try {
+            salary("ttt");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
+
 
     }
 
@@ -313,12 +337,20 @@ public class Main {
         }
     }
 
-    public static void salary(String jobName){
-        // Fullstack = 22000
-        // BackEnd = 20000
-        // FrontEnd = 18000
-
-        // "job not found"
+    public static void salary(String jobName) throws Exception{
+        switch (jobName.toLowerCase()){
+            case "fullstack":
+                System.out.println(22000);
+                break;
+            case "backend":
+                System.out.println(20000);
+                break;
+            case "frontend":
+                System.out.println(18000);
+                break;
+            default:
+                throw new RuntimeException("job not found");
+        }
     }
 
 }

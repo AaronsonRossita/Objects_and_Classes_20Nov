@@ -1,40 +1,49 @@
 public class Student {
 
-    private String name;
-    private int age;
+    int id;
+    String name;
+    String lastname;
+    int age;
+    boolean enrolled;
 
     public Student(){
-        this.age = 1;
+
     }
 
-    public Student(String name, int age) {
+    public Student(int id, String name, String lastname, int age, boolean enrolled) {
+        this.id = id;
         this.name = name;
-        if (age <= 0){
-            this.age = 1;
+        this.lastname = lastname;
+        this.age = age;
+        this.enrolled = enrolled;
+    }
+
+    public void printId(){
+        System.out.println("This student's id is " + id);
+    }
+
+    public void printName(){
+        System.out.println("This student's name is " + name);
+    }
+
+    public void printLastname(){
+        System.out.println("This student's lastname is " + lastname);
+    }
+
+    public void printAge(){
+        System.out.println("This student's age is " + age);
+    }
+
+    public void printIfEnrolled(){
+        if (enrolled){
+            System.out.println("This student is enrolled");
         }else{
-            this.age = age;
+            System.out.println("This students is not enrolled");
         }
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        if (age <= 0){
-            System.out.println("no way");
-        }else{
-            this.age = age;
-        }
+    public void printStudent(){
+        System.out.println("This student's name is " + name + " " + lastname
+                + ", they are " + age + " years old");
     }
 }
-
-
